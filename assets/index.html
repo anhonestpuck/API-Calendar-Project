@@ -38,17 +38,13 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-      // <div data-id="2" class="row">
-      //   <div class="col-1">2</div>
-      //   <textarea class="col-10 name"></textarea>
-      //   <div class="col-1 grade">B - Save</div>
-      // </div>
+  
       for (var i = 9; i <= 17; i++) {
         
         var parentEl = $('<div class="row" data-id="' + i + '">');
         var idEl = $('<div class="col-1">' + i + '</div>');
-        var textEl = $('<textarea class="col-10 name">');
-        var btnEl = $('<button class="col-1 grade">Save</button>');
+        var textEl = $('<textarea class="col-10 userBlock">');
+        var btnEl = $('<button class="col-1 submit">Schedule</button>');
         parentEl.append(idEl, textEl, btnEl);
         $('.container').append(parentEl);
       }
