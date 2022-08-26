@@ -47,14 +47,17 @@ function colorCode() {
         
         var specificTime = element.getAttribute('data-id');
         var timeCompare = (moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'));
-      
+        if (specificTime.isAfter(todayDate)) {
+            var colorEl = $('.row').attr().css('background-color: #8A2BE2')
+
+        }
+
        console.log(moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'))
     });
 
-    
-
 }
 
+// I can't seem to get anything to work to color code it based on moment object
   // if its now do it green (it is a time)
         // grab the data id 
         // turn it into a moment object
