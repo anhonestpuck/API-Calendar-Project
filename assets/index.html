@@ -39,27 +39,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
   
-      for (var i = 9; i <= 17; i++) {
-        
-        var parentEl = $('<div class="row" data-id="' + i + '">');
-        var idEl = $('<div class="col-1">' + i + ':00</div>');
-        var textEl = $('<textarea class="col-10 userBlock">');
-        var btnEl = $('<button class="col-1 submit">Schedule</button>');
-        parentEl.append(idEl, textEl, btnEl);
-        $('.container').append(parentEl);
-      }
-  
-      $('.container').on('click', '.grade', function() {
-        var parentId = $(this).parent().attr('data-id');
-        var name = $(this).prev().val();
-        console.log(name);
-        localStorage.setItem(parentId, name);
-      });
-      $('.name').each(function() {
-        var parentId = $(this).parent().attr('data-id');
-        var name = localStorage.getItem(parentId);
-        $(this).val(name);
-      });
+
     </script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

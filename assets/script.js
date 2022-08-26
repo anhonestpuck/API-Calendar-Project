@@ -28,6 +28,8 @@
 var todayDate = moment().format('MM Do YYYY');
 console.log(todayDate)
 $('#currentDay').text(todayDate)
+var currentMilTime = parseInt(moment().format('HH'));
+console.log(currentMilTime)
 
 // function colorCode() {
 //     $('.row').each(function(index, element){
@@ -41,21 +43,48 @@ $('#currentDay').text(todayDate)
 //     });
 
 // }
+for (var i = 9; i <= 17; i++) {
 
-function colorCode() {
-    $('.row').each(function(index, element){
+    var color;
+    if(currentMilTime<i) color = "red";
+    else if(currentMilTime===i) color = "green";
+    else color = "blue";
         
-        var specificTime = element.getAttribute('data-id');
-        var timeCompare = (moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'));
-        if (specificTime.isAfter(todayDate)) {
-            var colorEl = $('.row').attr().css('background-color: #8A2BE2')
+    var parentEl = $(`<div class="row ${color}" data-id="` + i + '">');
+    var idEl = $(`<div class="col-1 ">` + i + ':00</div>');
+    var textEl = $('<textarea class="col-10 userBlock">');
+    var btnEl = $('<button class="col-1 submit">Schedule</button>');
 
-        }
+    parentEl.append(idEl, textEl, btnEl);
+    $('.container').append(parentEl);
+    
 
-       console.log(moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'))
-    });
+  }
 
-}
+  $('.container').on('click', '.submit', function() {
+    var parentId = $(this).parent().attr('data-id');
+    var name = $(this).prev().val();
+    console.log(name);
+    localStorage.setItem(parentId, name);
+  });
+  $('.name').each(function() {
+    var parentId = $(this).parent().attr('data-id');
+    var eventScheduled = localStorage.getItem(parentId);
+    $(this).val(eventScheduled);
+  });
+
+// function colorCode() {
+//    var rowEl = $('.row').each(function(index, element){
+        
+//         var specificTime = element.getAttribute(parseInt('data-id'));
+//         var timeCompare = moment().hour(specificTime);
+//         var todayCompare = moment().hour();
+        
+
+//        console.log(specificTime);
+//     });
+
+// }
 
 // I can't seem to get anything to work to color code it based on moment object
   // if its now do it green (it is a time)
@@ -67,5 +96,5 @@ function colorCode() {
 // if the data id is earlier than the time then color one way
 // if its later then color code it to be different
 // if its now color code it to be green
-colorCode()
+// colorCode()
 // Ok so I got together all my times, now its time to see if i can define the variable as the hour so I can have that variable in where the numbers are
