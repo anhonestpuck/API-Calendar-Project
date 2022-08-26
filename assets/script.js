@@ -57,7 +57,6 @@ for (var i = 9; i <= 17; i++) {
 
     parentEl.append(idEl, textEl, btnEl);
     $('.container').append(parentEl);
-    
 
   }
 
