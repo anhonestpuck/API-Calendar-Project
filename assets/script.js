@@ -29,7 +29,40 @@ var todayDate = moment().format('MM Do YYYY');
 console.log(todayDate)
 $('#currentDay').text(todayDate)
 
+// function colorCode() {
+//     $('.row').each(function(index, element){
+//         console.log(index, element.getAttribute('data-id'))
+//         // if its now do it green (it is a time)
+//         // grab the data id 
+//         // turn it into a moment object
+//         // then compare the moment object with the current time
+//         // set the color
+//        console.log(moment().hour(9).minute(00).format('MMM Do YYYY hh:mm'))
+//     });
 
+// }
 
+function colorCode() {
+    $('.row').each(function(index, element){
+        
+        var specificTime = element.getAttribute('data-id');
+        var timeCompare = (moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'));
+      
+       console.log(moment().hour(specificTime).minute(00).format('MMM Do YYYY hh:mm'))
+    });
 
+    
+
+}
+
+  // if its now do it green (it is a time)
+        // grab the data id 
+        // turn it into a moment object
+        // then compare the moment object with the current time
+        // set the color
+
+// if the data id is earlier than the time then color one way
+// if its later then color code it to be different
+// if its now color code it to be green
+colorCode()
 // Ok so I got together all my times, now its time to see if i can define the variable as the hour so I can have that variable in where the numbers are
